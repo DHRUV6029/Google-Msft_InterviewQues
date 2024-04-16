@@ -18,32 +18,36 @@ input = {
 }
 
 
-#assumption we know the max bit val n = 6
-n = 6
-res = []
+for every pattern in every edge,
 
-bit_map = collections.defaultdict(int)
+hashMap = defaultdict(list)
+for edge in edges:
+    for pattern in edge:
+        hashMap[pattern].append(edge)
+now we have:
+{
+p1: [e1, e2, e3]
+p2: [e1, e3]
+p3: [e1, e2, e4]
+p4: []
+p5: [e2, e3, e4]
+p6: [e4]
+}
 
+for pattern, edges in hashMap.items()
+    if len(edges) > 1:
+        res.append(edges)
+answer would be:
+[
+[e1, e2, e3],
+[e1, e3],
+[e1, e2, e4],
+[e2, e3, e4]
+]
 
-for k , v in input.items():
-    bitmask = 0
-    for i in v:
-        bitmask = bitmask | (1 << i)
-        
-    bit_map[k] = bitmask
-    
-for k1, v1 in bit_map.items():
-    cur_mask = v1
-    tmp = [k1]
-    for k2,v2 in bit_map.items():
-        
-        if k1 != k2:
-            if cur_mask & v2 != 0:
-                tmp.append(k2)
-                cur_mask = cur_mask | v2
-            
-            
-                
-    res.append(tmp)
-    
-print(res)
+is this correct?
+
+time: O(e * p + p)
+space: O(p * e) (?) because we have p patterns which each store e edges they're related to. Not sure about this
+e = edges
+p = patterns
