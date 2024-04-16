@@ -19,7 +19,7 @@
 
 # Does anyone know how to solve this?
 
-events = ["0 p1 p2 p3" , "1 p1 p4 p5", "2 p5 p7 p8"]
+events = ["0 p1 p2 p3" , "1 p1 p5 p3", "2 p2 p5 p1" , "3 p3 p5 p6"]
 
 
 import collections
