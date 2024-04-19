@@ -16,31 +16,31 @@
 # For the second question I came up with a approach which i would like to share:
 
 
-# D = [1,5,10,25]
+D = [1,5,10,25]
 
 
-# need = 0
-# MAX =100
-# cur_cover = 0
-# coins = []
-# i = 0
-# while True:
-#     #check if next is smaller than eqaul to cur_need
+need = 0
+MAX =100
+cur_cover = 0
+coins = []
+i = 0
+while True:
+    #check if next is smaller than eqaul to cur_need
     
         
-#     if i+1 < len(D) and need >= D[i+1]:
-#         i+=1
+    if i+1 < len(D) and need >= D[i+1]:
+        i+=1
     
-#     cur_cover = cur_cover + D[i]
+    cur_cover = cur_cover + D[i]
 
-#     need = cur_cover+1
-#     coins.append(D[i])
-#     if cur_cover >= MAX:
-#         print(coins)
-#         break
+    need = cur_cover+1
+    coins.append(D[i])
+    if cur_cover >= MAX:
+        print(coins)
+        break
     
     
-# print(coins)
+print(coins)
     
     
 import collections 
@@ -85,6 +85,8 @@ print(a.getAt(0))
 a.setAllVals(1999)
 
 print(a.getAt(0))
+
+
 
 
         
