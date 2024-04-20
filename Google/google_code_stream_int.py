@@ -3,10 +3,7 @@
 # stream=22,3,1,8,10,6,13,.......
 # op=[(3, 1, 8), (3, 1, 6), (3, 8, 10), (3, 8, 6), (3, 10, 6), (1, 8, 6), (8, 10, 6), (8, 10, 13), (8, 6, 13), (10, 6, 13)]
 
-# Since the approach is extremely costly, the interviewer was unhappy with the approach so I couldn't move to the next round. Someone please help me with the optimal approach to this question
-
-
-
+# Since the approach is extremely costly, the interviewer was unhappy with the approach so I couldn't move to the next round. Someone please help me with the optimal approach to this questio
 
 #Questions to ask 
 
