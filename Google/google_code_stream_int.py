@@ -34,4 +34,3 @@ for i in stream:
     cnt[i] = 1
     
 print(res - {tuple()} )
-        
