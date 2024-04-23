@@ -2,7 +2,10 @@
 
 # I came across a coding question in my recent interview which is mentioned below :
 
-# Given an array of non-negative integers, the goal is to travel from the first index to the last index with maximum possible score with as many jumps allowed. Score of a jump is defined as the number of index jumped multiplied by the value on the jumped index.
+# Given an array of non-negative integers, the goal is to travel from the 
+# first index to the last index with maximum possible score with as 
+# many jumps allowed. Score of a jump is defined as the 
+# number of index jumped multiplied by the value on the jumped index.
 # e.g. [3,7,9,10]
 
 # if the jump is from index0 to index2, the score is (2-0)*9 = 18
@@ -27,11 +30,8 @@ for i in range(0,len(arr)):
     while st and arr[st[-1]] <= arr[i]:
         st.pop()
         
-    st.append(i)
-    
-    
+    st.append(i)  
 ans = 0
-
 while st:
     idx = st.pop()
     
