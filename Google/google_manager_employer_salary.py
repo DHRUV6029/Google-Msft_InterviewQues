@@ -18,7 +18,7 @@ class Tree:
     def __init__(self, val,left =None , right = None) -> None:
         self.val = val
         self.left = left
-        self.right = self.right
+        self.right = right
 
 res =[0, True] 
 def is_mnanager_salary_higher_than_all(node):  #node represent the manager
@@ -33,16 +33,21 @@ def is_mnanager_salary_higher_than_all(node):  #node represent the manager
     if l[1]==False:
         return [0, False]
     
-    r =  l = is_mnanager_salary_higher_than_all(node.right)
+    r = is_mnanager_salary_higher_than_all(node.right)
     
     if l[1]==False:
         return [0, False]
     
-    return [node.val + l[0] + l[0] , node.val + l[0] + l[0] <= node.val]
+    return [node.val + l[0] + r[0] , l[0] + r[0] <= node.val]
 
 
 
 ######buildinf a tree
 
 t = Tree(4000)
+
+t.left = Tree(300)
+t.right = Tree(33000)
+
+print(is_mnanager_salary_higher_than_all())
     

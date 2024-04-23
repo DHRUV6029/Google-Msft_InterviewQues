@@ -49,14 +49,13 @@
 # ]
 
 
-class TrieNode:
-    def __init__(self) -> None:
-        self.children = {}
-        self.child_count = 0
-        self.visit = 0
-        self.isFile = False
-        
-        
+class TrieNode():
+	def __init__(self):
+		self.children = {}
+		self.is_file = False
+		self.children_count = 0
+		self.visited_count = 0
+
 class Trie():
 	def __init__(self):
 		self.root = TrieNode()
@@ -77,24 +76,35 @@ class Trie():
 				curr.visited_count += 1
 			curr = curr.children[name]
 		curr.visited_count += 1
-  
-  
-class Solution:
-    t = TrieNode()
-    
-    #build the trie
-    #visit the trie
-    res = []
-    
-    def dfs(node, current_path):
-        if node.visit == 0:
-            return
-        
-        elif node.visit == node.children or node.visit == 1 and node.isFile:
-            res.append(current_path[1:])
-        else:
-            for child in node.children:
-                dfs(child , "/"+child)
-                
-                
 
+
+class Solution():
+
+	def print_files(self, all_files, selected_files):
+		trie = Trie()
+		for file_name in all_files:
+			trie.insert(file_name)
+
+		for file_name in selected_files:
+			trie.mark(file_name)
+
+		res = []
+
+		def dfs(node, current_path):
+			if node.visited_count == 0:
+				return
+			elif node.visited_count == node.children_count or node.visited_count == 1 and node.is_file:
+				res.append(current_path[1:])
+			else:
+				for i in node.children:
+					dfs(node.children[i], current_path + "/" + i)
+
+		dfs(trie.root, "")
+
+		return res
+
+
+sol = Solution()
+print(sol.print_files(all_files, selected_files))
+
+# ['b', 'c/e.txt', 'c/f', 'd']
