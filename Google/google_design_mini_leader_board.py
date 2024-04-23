@@ -57,7 +57,7 @@ class LeaderBoard:
         
         i = bisect.bisect_right(uids ,uid)
         left_offset = min(k // 2+1, i)
-        right_offset = min(k // 2+1, len(uids) - i - 1)
+        right_offset = min(k // 2+1, len(uids) - i)
         start = i - left_offset
         end = i + right_offset 
         return uids[start:end]
@@ -87,7 +87,7 @@ l.update(8, 12)
 
 print(l.topk(3))
 
-print(l.getwindow(3 , 4))
+print(l.getwindow(2, 4))
 
 
         
