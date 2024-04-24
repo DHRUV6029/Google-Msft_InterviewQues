@@ -12,13 +12,9 @@ A= [25,10,15,10,70]
 B =[5,5,50,5,30]
 
 memo = {}
-def citySwitch(city):
-    if city == 'A':
-        return 'B'
-    
-    if city == 'B':
-        return 'A'
 
+def citySwitch(current):
+    return 'B' if current == 'A' else 'A'
 def getMaxRoute(i , cur_city):
     if i >= len(A):
         return 0 ,''
