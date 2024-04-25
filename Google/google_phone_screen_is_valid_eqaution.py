@@ -7,7 +7,7 @@
 # Invalid - a + -x = a + b (- in -x is a unary operator)
 
 
-eqaution = "a = b"  #keeping space seprated for ease of parsing 
+eqaution = "( a - b ) = b"  #keeping space seprated for ease of parsing 
 
 
 alpha = 'abcdefghijklmnopqrstuvwxyz'
@@ -48,12 +48,13 @@ def parse_equations(vals):
         if actual_next_state == '(':balance+=1
         if actual_next_state == ')': balance-=1
         
-        if i == len(vals)-1 and actual_next_state in end_states:
-            return (True and balance == 0)
-    
+      
         #check if we can go ahead or not
         if not any(actual_next_state in state for state in next_valid_states):
             return False
+        
+        if i == len(vals)-1 and actual_next_state in end_states:
+            return (True and balance == 0)
         
         cur_state = actual_next_state
         #################################

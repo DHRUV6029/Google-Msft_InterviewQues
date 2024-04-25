@@ -43,7 +43,7 @@ for i in range(0,len(subset)):
     if subset[i] == 1:
         ans.extend([i]*cnt[i])
         
-print(dp[-1])
+print(ans)
     
     
     

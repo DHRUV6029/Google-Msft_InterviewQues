@@ -1,5 +1,5 @@
 # <!-- LeetCode 1820. Maximum Number of Accepted Invitations
-
+#Hungarian Algorithm
 # There are m boys and n girls in a class attending an upcoming party.
 
 # You are given an m x n integer matrix grid, where grid[i][j] equals 0 or 1. If grid[i][j] == 1, then that means the ith boy can invite the jth girl to the party. A boy can invite at most one girl, and a girl can accept at most one invitation from a boy.

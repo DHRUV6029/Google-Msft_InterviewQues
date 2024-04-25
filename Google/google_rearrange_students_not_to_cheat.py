@@ -11,7 +11,7 @@
 import collections
 import heapq
 
-arr = [5,4,4,4,1,4]
+arr = [1,7,7,6,6,6]
 
 space = 2
 cnt = {}

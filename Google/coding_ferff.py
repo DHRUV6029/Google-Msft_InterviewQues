@@ -1,50 +1,12 @@
-ciphertext = "Eqfkpi vguvu ctg hwp!"
-knownword = "tests"
+import bisect
 
-cipher = ciphertext.split(" ");
-ans = ""
+class Example:
+    def __init__(self):
+        self.records = [[('a', 1), ('b', 2), ('c', 3)], [('d', 4), ('e', 5), ('f', 6)]]
 
+    def find_index(self, index, snap_id):
+        idx = bisect.bisect_right(self.records[index], snap_id, key=lambda x: x[1])
+        return idx
 
-def encrypt_string(input_string, k):
-    encrypted = ""
-    for char in input_string:
-        # Encrypt uppercase letters
-        if char.isalpha() and char.isupper():
-            encrypted += chr((ord(char) + k - 65) % 26 + 65)
-        # Encrypt lowercase letters
-        elif char.isalpha() and char.islower():
-            encrypted += chr((ord(char) + k - 97) % 26 + 97)
-        # Encrypt 'a' to 'z'
-        elif char.isalpha() and char.lower() == 'a':
-            encrypted += 'z' if char.islower() else 'Z'
-        # Encrypt other characters unchanged
-        else:
-            encrypted += char
-    return encrypted
-
-
-shift = []
-for i in range(0,len(cipher)):
-    word = cipher[i]
-    
-    if len(word) != len(knownword):
-        continue
-        
-        
-    diff = set()
-    for j in range(0,len(word)):
-        diff.add(ord(word[j])- ord(knownword[j]))
-        
-    #check if we found somwthing
-    if len(diff) == 1:
-        shift = [i for i in diff]
-        
-        
-if not shift:
-    print("invalid")
-else:
-    print(encrypt_string(ciphertext , -shift[0]))
-    
-    
-        
-    
+ex = Example()
+print(ex.find_index(0, ('b', 2)))  # Output: 2

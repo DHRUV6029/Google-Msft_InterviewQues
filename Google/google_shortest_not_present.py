@@ -46,7 +46,7 @@
 
 alpha = 'abcdefghijklmnopqrstuvwxyz'
 
-s = 'abbccac'  
+s = 'abbcccdef'  
 k = 6 #'abcdef'
 n = k + 1
 
