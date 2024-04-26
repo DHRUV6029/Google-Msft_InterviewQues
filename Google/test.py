@@ -1,43 +1,26 @@
-import json
+def generate_byte_sequences(input_str, min_length=1, max_length=4):
+    byte_set = set()
 
-def apply_diff(base_json, diff):
-    """
-    Apply the given diff to the base JSON object.
-    
-    Args:
-    - base_json: The base JSON object to which the diff will be applied.
-    - diff: The JSON diff to apply.
-    
-    Returns:
-    - updated_json: The JSON object after applying the diff.
-    """
-    if not diff:
-        return base_json
-    
-    if not base_json:
-        base_json = {}
-        
-    for key, value in diff.items():
-        if isinstance(value, dict):
-            if key not in base_json or not isinstance(base_json[key], dict):
-                base_json[key] = {}
-            base_json[key] = apply_diff(base_json[key], value)
-        elif isinstance(value, list):
-            if key not in base_json or not isinstance(base_json[key], list):
-                base_json[key] = []
-            base_json[key] = apply_diff(base_json[key], value)
-        else:
-            base_json[key] = value
-    
-    return base_json
+    # Generate byte sequences of length min_length to max_length
+    for length in range(min_length, max_length + 1):
+        for i in range(len(input_str) - length + 1):
+            byte_set.add(input_str[i:i + length])
 
-# Example usage
-json_str1 = '{"name": "John", "age": 30, "city": "New York"}'
-json_str2 = '{"name": "John", "age": 35, "city": "Los Angeles", "pincode": "3405"}'
+    return byte_set
 
-# Assuming you have the diff calculated somewhere
-diff = obj_diff(json.loads(json_str1), json.loads(json_str2))
+def find_shortest_non_present_sequence(input_str):
+    byte_set = generate_byte_sequences(input_str)
+    
+    # Iterate through all possible byte sequences of length 1 to 4
+    for length in range(1, 5):
+        for i in range(256 ** length):
+            byte_sequence = bytes([i >> (8*j) & 0xff for j in range(length)])
+            if byte_sequence not in byte_set:
+                return byte_sequence.decode('latin-1')  # Convert bytes to string
+    
+    return ""  # Should not reach here if input is bounded by 4GB
 
-# Now, apply the diff to get the updated JSON
-updated_json = apply_diff(json.loads(json_str1), diff)
-print(json.dumps(updated_json, indent=4))
+# Test the function
+input_str = "abcdefacbeddefd"
+result = find_shortest_non_present_sequence(input_str)
+print("Shortest non-present sequence:", result)

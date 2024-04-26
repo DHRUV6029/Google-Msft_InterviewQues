@@ -16,9 +16,7 @@ width = 3
 bricks = [1,2]
 
 #bricks represrnt the w 
-
 #1 Approach (represent a single row config as a mask)
-
 def generate_single_row_mask(w , width , masks, bricks, cur_mask):
     if w == width:
         masks.append(cur_mask)
