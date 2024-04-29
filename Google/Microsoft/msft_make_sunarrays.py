@@ -1,5 +1,7 @@
-arr = [8,9,10]
-days = 2
+arr = [8,15,10,20,8]
+days  = 2
+
+arr.sort()
 
 def binSearch(mid):
     cnt = 0
@@ -7,7 +9,7 @@ def binSearch(mid):
     for i in range(0,len(arr)):
         cur+=arr[i]
         
-        if cur > mid:
+        if cur >= mid:
             cur = arr[i]
             cnt+=1
         
