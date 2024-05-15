@@ -1,5 +1,5 @@
 import collections
-digits = [8,1,9]
+digits =[0,0,0,0,0,1]
 
 freq = [0]*10
 s = 0
@@ -14,21 +14,28 @@ def create_number(arr):
         if arr[i]>0:
             ans+=(str(i)*arr[i])
             
-    return ans[::-1]
+    ans = ans[::-1]  #take care of the leading zeros
+    i = 0
+    while i <len(ans) and ans[i] == '0':
+        i+=1
+    ans  = ans[i:]
+    if ans == '' and freq[0]>0:
+        return '0'
+    else:
+        return ans
 
 
 for i in range(0,len(digits)):
     freq[digits[i]]+=1
     s+=digits[i]
     
-if s % 3 == 0:
-    print(create_number(freq))
-    exit()
+
     
 while s and s  % 3 !=0:
     select = None
     if s % 3 == 1:
         select = m1
+
     elif s%3 == 2:
         select = m2
         
@@ -37,9 +44,8 @@ while s and s  % 3 !=0:
             freq[i]-=1
             s-=i
             break
+
         
 ans = create_number(freq)
 print(ans)
-        
-    
     
