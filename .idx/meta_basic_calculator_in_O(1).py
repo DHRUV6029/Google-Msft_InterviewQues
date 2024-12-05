@@ -27,7 +27,7 @@ class Solution:
                 elif last_op == "*":
                     last_num = last_num * cur_num
                 elif  last_op == '/':
-                    last_num = last_num // cur_num
+                    last_num = int(last_num / cur_num)
 
                 
                 last_op = s[i]
