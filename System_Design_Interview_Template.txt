@@ -1,0 +1,62 @@
+1. Clarify Requirements
+
+Ask questions to clarify the problem.
+
+What is the primary purpose of the system?
+What are the functional and non-functional requirements (e.g., scalability, latency, throughput)?
+Are there any constraints or assumptions?
+Define the scope of the discussion.
+E.g., Are you designing the full system or just a specific part?
+
+2. Establish the High-Level Design
+
+Sketch out a high-level architecture.
+
+Identify core components (e.g., clients, servers, databases, APIs, message queues).
+
+Define how components interact.
+
+Describe the data flow between components.
+
+3. Deep Dive into Components
+
+Focus on key components and explain how they work.
+
+Data storage: SQL vs. NoSQL, replication, sharding.
+
+APIs: REST vs. GraphQL, versioning.
+
+Scaling: Load balancers, caching strategies.
+
+Communication: Synchronous vs. asynchronous, protocols (e.g., HTTP, gRPC).
+
+Mention specific technologies you’d consider (e.g., Kafka, Redis, AWS S3).
+
+4. Address Non-Functional Requirements
+
+Scalability: How will the system handle increased traffic?
+
+Reliability: How will you ensure fault tolerance and availability?
+
+Security: How will you handle authentication, authorization, and encryption?
+
+Performance: Caching, database indexing, minimizing latency.
+
+5. Consider Trade-offs
+
+Discuss trade-offs in your design choices.
+E.g., Latency vs. consistency, complexity vs. simplicity.
+
+Explain why you chose one approach over another.
+
+6. Prepare for Scale
+
+How would the system evolve to handle 10x, 100x traffic?
+
+Address bottlenecks and plan for horizontal/vertical scaling.
+
+7. Summarize Your Design
+
+Recap the architecture, key components, and why your design meets the requirements.
+
+Invite feedback or questions.
