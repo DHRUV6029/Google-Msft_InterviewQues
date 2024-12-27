@@ -1,0 +1,32 @@
+nums1 = [1,2,30,0,0,0,0,0,0]  # Size m+n+k
+nums2 = [2,5,6]
+nums3 = [1,4,7]
+
+n , m , k  = 3  ,len(nums2) , len(nums3)
+
+l = n+m+k-1
+
+p1 = n-1
+p2 = m-1
+p3 = k-1
+
+while l>=0:
+    val1= nums1[p1] if p1 >= 0 else float('-inf')
+    val2= nums2[p2] if p2 >= 0 else float('-inf')
+    val3= nums3[p3] if p3 >= 0 else float('-inf')
+
+    max_val = max(val1 , val2, val3)
+
+    if max_val == val1:
+        nums1[l] = val1
+        p1-=1
+    elif max_val == val2:
+        nums1[l] = val2
+        p2-=1
+    elif max_val == val3:
+        nums1[l] = val3
+        p3-=1
+
+    l-=1
+
+print(nums1)
