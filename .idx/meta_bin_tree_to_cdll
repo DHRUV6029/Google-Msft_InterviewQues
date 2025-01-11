@@ -1,0 +1,54 @@
+
+# Definition for a Node.
+class TreeNode:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def treeToDoublyList(self, root):
+        last = None
+        first = None
+
+        def helper(root):
+            nonlocal last , first
+
+            if not root:return
+
+            old_left = root.left
+            old_right = root.right
+
+            if last:
+                last.right = root
+                root.left = last
+            else:
+                first = root
+
+            last = root
+
+            helper(old_left)
+            helper(old_right)
+
+            
+
+        helper(root)
+        last.right = first
+        first.left = last
+
+        return first
+    
+
+root = TreeNode(4)
+
+# Level 2
+root.left = TreeNode(2)
+root.right = TreeNode(5)
+
+# Level 3
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
+
+s= Solution().treeToDoublyList(root)
+print(s)
